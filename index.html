@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-</head>
-<body style="background: white;">
+  </head>
+  <body style="background: white">
     <h1>Hello World!</h1>
     <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
+      We are using Node.js <span id="node-version"></span>, Chromium
+      <span id="chrome-version" onclick="alert(1)"></span>, and Electron <span id="electron-version"></span>.
     </p>
-</body>
+    <button id="myBtn">通知消息</button>
+
+    <script>
+      const myBtn = document.querySelector('#myBtn')
+      var option = {
+        title: '通知',
+        body: '你有一个新的订单消息'
+      }
+
+      myBtn.onclick = () => {
+        new window.Notification(option.title, option)
+      }
+    </script>
+    <script src="renderer.js"></script>
+  </body>
 </html>
