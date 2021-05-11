@@ -3,10 +3,29 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <button @click="auto">自定义事件</button>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+const { require } = window
+const { ipcRenderer } = require('electron')
+
+export default {
+  data() {
+    return {
+      name: 'age'
+    }
+  },
+  methods: {
+    auto() {
+      ipcRenderer.invoke('perform-action', 1, 2)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
