@@ -19,6 +19,9 @@ export default {
       name: 'age'
     }
   },
+  mounted() {
+    console.log(process.env)
+  },
   methods: {
     auto() {
       ipcRenderer.invoke('perform-action', 1, 2)
