@@ -20,6 +20,8 @@ async function createWindow() {
     }
   })
 
+  console.log(`当前版本：${process.env.type}`)
+
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
